@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1083494956331",
+    "firebase_url": "https://androidtrznicakotlin-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "androidtrznicakotlin",
+    "storage_bucket": "androidtrznicakotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083494956331:android:2757f9ab2d5b486635196e",
+        "android_client_info": {
+          "package_name": "com.example.androidtrznica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083494956331-f52nm2s19edv1efngbqmj3rttkhm6bt8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA4MfloH2UdeH3ey_bI-L7p5-NWprRgis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1083494956331-f52nm2s19edv1efngbqmj3rttkhm6bt8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

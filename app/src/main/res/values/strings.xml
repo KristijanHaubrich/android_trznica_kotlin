@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">trznica</string>
+    <string name="banner">TRŽNICA CIBALIA</string>
+    <string name="register_question">Nemaš račun?</string>
+    <string name="login_question">Imaš račun?</string>
+    <string name="logout">ODJAVA</string>
+    <string name="register">REGISTRIRAJ SE</string>
+    <string name="password">lozinka</string>
+    <string name="login">prijava</string>
+    <string name="username">korisničko ime</string>
+    <string name="products">moji proizvodi</string>
+    <string name="delete_acc">obriši račun</string>
+    <string name="add_product_banner">NOVI PROIZVOD</string>
+    <string name="product_name">Ime proizvoda</string>
+    <string name="product_description">Opis proizvoda</string>
+    <string name="product_price">Cijena proizvoda</string>
+    <string name="pick_pic">odaberi sliku</string>
+    <string name="add_product">dodaj proizvod</string>
+    <string name="profilePic_banner">PROFILNA SLIKA</string>
+    <string name="change_profilePic">Promijeni profilnu sliku</string>
+    <string name="delete_profilePic">obrisi profilnu sliku</string>
+    <string name="contacts">KONTAKTI</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

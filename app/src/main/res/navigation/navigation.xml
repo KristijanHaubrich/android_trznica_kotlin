@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.androidtrznica.register_login.RegisterFragment"
+        tools:layout="@layout/fragment_register"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.androidtrznica.register_login.LoginFragment"
+        tools:layout="@layout/fragment_login"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProductFragment"
+        tools:layout="@layout/fragment_add_product"
+        android:name="com.example.androidtrznica.product.AddProductFragment"
+        android:label="AddProductFragment" >
+        <action
+            android:id="@+id/action_addProductFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_addProductFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeProfilePicFragment"
+        tools:layout="@layout/fragment_change_profile_pic"
+        android:name="com.example.androidtrznica.change_profile_pic.ChangeProfilePicFragment"
+        android:label="ChangeProfilePicFragment" >
+        <action
+            android:id="@+id/action_changeProfilePicFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_changeProfilePicFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_changeProfilePicFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        tools:layout="@layout/fragment_contact"
+        android:name="com.example.androidtrznica.contacts.ContactFragment"
+        android:label="ContactFragment" >
+        <argument
+            android:name="username"
+            app:argType="string"/>
+        <argument
+            android:name="profilePic"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_contactFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment" />
+        <action
+            android:id="@+id/action_contactFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_contactFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactsFragment"
+        tools:layout="@layout/fragment_contacts"
+        android:name="com.example.androidtrznica.contacts.ContactsFragment"
+        android:label="ContactsFragment" >
+
+        <action
+            android:id="@+id/action_contactsFragment_to_contactFragment"
+            app:destination="@id/contactFragment" />
+        <action
+            android:id="@+id/action_contactsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_contactsFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        tools:layout="@layout/fragment_main"
+        android:name="com.example.androidtrznica.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_changeProfilePicFragment"
+            app:destination="@id/changeProfilePicFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_deleteFragment"
+            app:destination="@id/deleteFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_deleteProductFragment"
+            app:destination="@id/deleteProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deleteFragment"
+        tools:layout="@layout/fragment_delete"
+        android:name="com.example.androidtrznica.deleteUser.DeleteFragment"
+        android:label="DeleteFragment" >
+        <argument
+            android:name="username"
+            app:argType="string"/>
+        <argument
+            android:name="userUID"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_deleteFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_deleteFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deleteProductFragment"
+        android:name="com.example.androidtrznica.deleteProduct.DeleteProductFragment"
+        tools:layout="@layout/fragment_delete_product"
+        android:label="DeleteProductFragment" >
+        <argument
+            android:name="productName"
+            app:argType="string"/>
+        <argument
+            android:name="productOwner"
+            app:argType="string"/>
+        <argument
+            android:name="productPic"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_deleteProductFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>
