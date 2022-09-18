@@ -1,4 +1,4 @@
-package com.example.androidtrznica
+package com.example.androidtrznica.userProfile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidtrznica.databinding.FragmentMainBinding
 import com.bumptech.glide.Glide
+import com.example.androidtrznica.R
 import com.example.androidtrznica.product.Product
 import com.example.androidtrznica.product.ProductAdapter
 import com.example.androidtrznica.register_login.User
@@ -156,7 +157,6 @@ class MainFragment : Fragment() {
 
 
     companion object {
-        val Tag = "NewTask"
 
         fun create(): Fragment {
             return MainFragment()

@@ -58,7 +58,6 @@ class DeleteProductFragment : Fragment() {
 
 
     companion object {
-        val Tag = "NewTask"
 
         fun create(): Fragment {
             return ContactFragment()

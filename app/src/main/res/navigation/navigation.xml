@@ -94,7 +94,7 @@
     <fragment
         android:id="@+id/mainFragment"
         tools:layout="@layout/fragment_main"
-        android:name="com.example.androidtrznica.MainFragment"
+        android:name="com.example.androidtrznica.userProfile.MainFragment"
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_loginFragment"

@@ -6,20 +6,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androidtrznica.R
-import com.example.androidtrznica.deleteUser.DeleteFragmentArgs
 import com.example.androidtrznica.register_login.User
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class ContactAdapter(private val userList: ArrayList<User> ): RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
     val database = FirebaseDatabase.getInstance().reference
-    val userAuth = FirebaseAuth.getInstance().currentUser
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.user_item,parent,false)

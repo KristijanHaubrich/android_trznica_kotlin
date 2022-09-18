@@ -9,11 +9,8 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.example.androidtrznica.R
 import com.example.androidtrznica.databinding.FragmentContactsBinding
-import com.example.androidtrznica.product.Product
-import com.example.androidtrznica.product.ProductAdapter
 import com.example.androidtrznica.register_login.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -113,7 +110,6 @@ class ContactsFragment : Fragment() {
 
 
     companion object {
-        val Tag = "NewTask"
 
         fun create(): Fragment {
             return ContactsFragment()

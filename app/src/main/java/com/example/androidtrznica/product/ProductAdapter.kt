@@ -1,26 +1,19 @@
 package com.example.androidtrznica.product
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.androidtrznica.MainFragmentDirections
 import com.example.androidtrznica.R
 import com.example.androidtrznica.register_login.User
+import com.example.androidtrznica.userProfile.MainFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.storage.FirebaseStorage
 
 class ProductAdapter(private val productList: ArrayList<Product> ): RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
