@@ -51,14 +51,20 @@
                 android:layout_height="wrap_content"
                 />
 
+            <LinearLayout
+                android:layout_below="@id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="5dp"
-                android:layout_below="@id/searchView"
-                android:layout_height="200dp"/>
+                android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
 
         </RelativeLayout>
     </ScrollView>
