@@ -21,6 +21,7 @@ class LoginFragment : Fragment() {
     lateinit var binding: FragmentLoginBinding
     lateinit var database: DatabaseReference
     lateinit var fragContext:Context
+    var prijava = false
     var auth = FirebaseAuth.getInstance()
 
     override fun onAttach(context: Context) {
@@ -81,11 +82,10 @@ class LoginFragment : Fragment() {
         else{
             database = FirebaseDatabase.getInstance().reference.child("Users")
 
-            database.addValueEventListener(object:ValueEventListener{
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()){
+                database.get().addOnSuccessListener {
+                    if (it.exists()){
                         var isLogged = false
-                        for (current:DataSnapshot in snapshot.children ){
+                        for (current:DataSnapshot in it.children ){
                             if(current.exists()) {
                                 var currentUser = current.getValue(User::class.java)
                                 if (currentUser?.email == email && currentUser?.password == password) {
@@ -93,19 +93,22 @@ class LoginFragment : Fragment() {
                                         etEmail.text.clear()
                                         etPassword.text.clear()
                                     }
-                                    loginUser(currentUser)
+                                    if (!prijava){
+                                        loginUser(currentUser)
+                                    }
+                                    prijava = true
                                     isLogged = true
                                 }
                             }
                         }
-                        if (!isLogged){ Toast.makeText(activity, "Netočna lozinka ili email", Toast.LENGTH_LONG).show()}
+                        if (!isLogged){ Toast.makeText(fragContext, "Netočna lozinka ili email", Toast.LENGTH_LONG).show()}
+                    }
+                    else{
+                        Toast.makeText(fragContext, "Korisnik ne postoji", Toast.LENGTH_LONG).show()
                     }
                 }
-                override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(activity, "Neuspjela prijava : ${error.message}", Toast.LENGTH_LONG).show()
-                }
 
-            })
+
         }
     }
 
@@ -125,9 +128,15 @@ class LoginFragment : Fragment() {
                     auth.currentUser?.sendEmailVerification()?.addOnFailureListener{
                         Toast.makeText(fragContext, "Verifikacijski mail nije uspješno poslan: ${it.message.toString()}", Toast.LENGTH_LONG).show()
                         Log.e("Verification",it.message.toString())
+                    }?.addOnSuccessListener {
+                        prijava = false
+                        Toast.makeText(fragContext, "PRVA PRIJAVA: Potvrdite email koji ste dobili na vašu email adresu", Toast.LENGTH_LONG).show()
                     }
-                    Toast.makeText(fragContext, "PRVA PRIJAVA: Potvrdite email koji ste dobili na vašu email adresu", Toast.LENGTH_LONG).show()
+
                 }
+            }
+            else{
+                Toast.makeText(fragContext, "Neuspjela prijava", Toast.LENGTH_LONG).show()
             }
         }
     }

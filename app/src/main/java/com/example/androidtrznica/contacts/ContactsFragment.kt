@@ -85,27 +85,19 @@ class ContactsFragment : Fragment() {
     }
 
     private fun fetchData() {
-        database.child("Users").addValueEventListener(object :
-            ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                userList.clear()
-                if (snapshot.exists()){
-                    for (current in snapshot.children){
-                        if (current.exists()){
-                            val user = current.getValue(User::class.java)
-                            if(!(userAuth?.uid == current.key)) userList.add(user!!)
-                        }
+        database.child("Users").get().addOnSuccessListener {
+            userList.clear()
+            if (it.exists()){
+                for (current in it.children){
+                    if (current.exists()){
+                        val user = current.getValue(User::class.java)
+                        if(!(userAuth?.uid == current.key)) userList.add(user!!)
                     }
                 }
-                binding.recyclerView.adapter = ContactAdapter(userList)
             }
+            binding.recyclerView.adapter = ContactAdapter(userList)
+        }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(fragContext,"Greška prilikom učitavanja korisnika: ${error.message}",
-                    Toast.LENGTH_LONG).show()
-            }
-
-        })
     }
 
 
