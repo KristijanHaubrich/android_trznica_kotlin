@@ -48,10 +48,11 @@ class DeleteProductFragment : Fragment() {
     private fun deleteProduct() {
         if (productPic != "null"){
             store.getReferenceFromUrl(productPic).delete().addOnSuccessListener {
-                database.child("Products").child(owner).child(productName).removeValue().addOnSuccessListener {
-                    Toast.makeText(this.context,"Proizvod je uspješno obrisan.", Toast.LENGTH_LONG).show()
-                }
+                database.child("Products").child(owner).child(productName).removeValue()
             }
+        }
+        database.child("Products").child(owner).child(productName).removeValue().addOnSuccessListener {
+            Toast.makeText(this.context,"Proizvod ${productName} je uspješno obrisan", Toast.LENGTH_LONG).show()
         }
         goBack()
     }
